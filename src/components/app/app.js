@@ -10,11 +10,27 @@ import './app.css';
 
 const App = () => {
 
+    
     const data = [
         {label: "Going to learn React", important: true, id: 'qwqw'},
         {label: "That is so good", important: false, id: 'werr'},
-        {label: "I need a break...", important: false, id: 'fdfdf'}
+        {label: "I need a break...", important: false, id: 'fdfdf'},
+        null,
+        {},
+        [],
+        0,
+        '1'
     ];
+
+    const dataPush = [];  
+
+    data.forEach(item => {
+        if (typeof(item) == "object" && item !== null && Array.isArray(item) === false
+        && Object.entries(item).length !== 0) { 
+            dataPush.push(item); 
+        }
+    });
+
     return (
     <div className="app">
         <AppHeader/>
@@ -22,7 +38,7 @@ const App = () => {
             <SearchPanel/>
             <PostStatusFilter/>
         </div>
-        <PostList posts={data}/>
+        <PostList posts={dataPush}/>
         <PostAddForm/>
     </div>
     
