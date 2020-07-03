@@ -6,6 +6,12 @@ import PostList from '../post-list';
 import PostAddForm from '../post-add-form';
 
 import './app.css';
+import styled from 'styled-components';
+
+const AppBlock = styled.div`
+    margin: 0 auto;
+    max-width: 800px;
+`
 
 
 const App = () => {
@@ -14,12 +20,7 @@ const App = () => {
     const data = [
         {label: "Going to learn React", important: true, id: 'qwqw'},
         {label: "That is so good", important: false, id: 'werr'},
-        {label: "I need a break...", important: false, id: 'fdfdf'},
-        null,
-        {},
-        [],
-        0,
-        '1'
+        {label: "I need a break...", important: false, id: 'fdfdf'}
     ];
 
     const dataPush = [];  
@@ -32,7 +33,7 @@ const App = () => {
     });
 
     return (
-    <div className="app">
+    <AppBlock>
         <AppHeader/>
         <div className="search-panel d-flex">
             <SearchPanel/>
@@ -40,7 +41,7 @@ const App = () => {
         </div>
         <PostList posts={dataPush}/>
         <PostAddForm/>
-    </div>
+    </AppBlock>
     
     )
 };
