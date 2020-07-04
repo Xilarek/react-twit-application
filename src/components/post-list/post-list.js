@@ -4,17 +4,22 @@ import {ListGroup} from 'reactstrap';
 
 import './post-list.css';
 
-const PostList = ({posts}) => {
-
+const PostList = ({posts, onDelete}) => {
+    // eslint-disable-next-line
     const elements = posts.map((item) => {
-        const {id, ...itemProps} = item;
 
-        return (
-            <li key={id} className="list-group-item">
-                <PostListItem {...itemProps}/>
-            </li>
-        )
+        if (typeof(item) == "object" && item !== null && Array.isArray(item) === false
+        && Object.entries(item).length !== 0) {
+            const {id, ...itemProps} = item;
+            return (
+                <li key={id} className="list-group-item">
+                    <PostListItem {...itemProps}
+                    onDelete={() => onDelete(id)}/>
+                </li>
+            )
+        }
     });
+    
     return (
         <ListGroup className="app-list">
             {elements}
