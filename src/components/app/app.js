@@ -5,6 +5,7 @@ import PostStatusFilter from '../post-status-filter';
 import PostList from '../post-list';
 import PostAddForm from '../post-add-form';
 import nextId from "react-id-generator";
+import PropTypes from 'prop-types';
 
 
 import './app.css';
@@ -153,4 +154,8 @@ export default class App extends Component {
         )
     }
 };
+
+PostList.propTypes = {
+    posts: PropTypes.arrayOf(PropTypes.object).isRequired
+}
 

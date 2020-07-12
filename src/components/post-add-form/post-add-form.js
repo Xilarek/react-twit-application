@@ -14,16 +14,25 @@ export default class PostAddForm extends Component {
     }
     onValueChange(e) {
         this.setState({
-            text: e.target.value
+            text: e.target.value.trim()
         })
     }
     onSubmit(e) {
         e.preventDefault();
+        
+        if (this.state.text === '') {
+            alert('Поле не может быть пустым!');
+            return;
+        }
+
         this.props.onAdd(this.state.text)
         this.setState({
             text: ''
         })
     }
+
+    
+
     render() {
         return (
             <form 
