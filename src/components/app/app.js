@@ -156,6 +156,23 @@ export default class App extends Component {
 };
 
 PostList.propTypes = {
-    posts: PropTypes.arrayOf(PropTypes.object).isRequired
+    posts: PropTypes.arrayOf(PropTypes.object).isRequired,
+    onDelete: PropTypes.func.isRequired,
+    onToggleImportant: PropTypes.func.isRequired,
+    onToggleLiked: PropTypes.func.isRequired,
 }
+PostStatusFilter.propTypes = {
+    filter: PropTypes.string.isRequired,
+    onFilterSelect: PropTypes.func.isRequired
+    
+}
+AppHeader.propTypes = {
+    liked: PropTypes.number.isRequired,
+    allPosts: PropTypes.number.isRequired
+}
+
+SearchPanel.propTypes = {
+    onUpdateSearch: PropTypes.func.isRequired
+}
+
 

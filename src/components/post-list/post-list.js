@@ -25,13 +25,15 @@ const PostList = ({posts, onDelete, onToggleImportant, onToggleLiked}) => {
     
     return (
         <ListGroup className="app-list">
-            {elements}
+            {elements.length ? elements : <p>No twit!</p>}
         </ListGroup>
     )
 }
 
 PostList.propTypes = {
-    posts: PropTypes.arrayOf(PropTypes.object).isRequired
+    posts: PropTypes.arrayOf(PropTypes.object).isRequired,
+    onToggleImportant: PropTypes.func.isRequired,
+    onToggleLiked: PropTypes.func.isRequired
 }
 
 
